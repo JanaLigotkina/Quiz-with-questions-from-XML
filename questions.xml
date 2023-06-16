@@ -1,0 +1,38 @@
+<questions>
+  <question minutes="2" points="5">
+    <text>Сколько байт в килобайте?</text>
+    <variants>
+      <variant>1000</variant>
+      <variant>2048</variant>
+      <variant right="true">1024</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+  <question minutes="1" points="3">
+    <text>Сколько дней в году?</text>
+    <variants>
+      <variant>364</variant>
+      <variant>366</variant>
+      <variant right="true">365</variant>
+      <variant>360</variant>
+    </variants>
+  </question>
+  <question minutes="5" points="3">
+    <text>Сколько жизней у кошек?</text>
+    <variants>
+      <variant>1</variant>
+      <variant>20</variant>
+      <variant right="true">9</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+    <question minutes="5" points="12">
+    <text>Сколько месяцев в году?</text>
+    <variants>
+      <variant>13</variant>
+      <variant>11</variant>
+      <variant right="true">12</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+</questions>
