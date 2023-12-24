@@ -1,32 +1,16 @@
-require 'rexml/document'
+#!/usr/bin/env ruby
+
 require_relative 'lib/question'
 require_relative 'lib/quiz'
+require_relative 'lib/colorful_output'
 
-# Делаем массив вопросов 
-questions = Quiz.read_file(File.dirname(__FILE__) + '/questions.xml')
+include ColorfulOutput
 
-quiz = Quiz.new(questions)
+NUMBER_OF_QUESTION_FOR_QUIZ = 3
 
-puts 'Добро пожаловать в викторину!'
+puts pastel.bold.green("Добро пожаловать в игру 'Викторина'!")
+puts "Выберите один из вариантов ответа."
 
-quiz.selected_questions.each_with_index() do |question, index|
-	puts question.text
+quiz = Quiz.new('data')
 
-	question.answer_options.each_with_index() do |answer, i|
-		puts "#{i + 1}. #{question.answer_options[i]}" 
-	end 	
-	
-	puts "Введите номер ответа:"
-	choise = gets.to_i
-
-	if (choise - 1) == question.right_answer_index 
-		quiz.update_guessed_scores(question)
-		puts "Верно, количество правильных ответов: #{quiz.guessed}, количество баллов: #{quiz.scores}"
-	else 
-		puts "Неправильно! Правильный ответ под номером #{question.right_answer_index + 1}"
-		puts "Общее количество баллов на данный момент: #{quiz.scores}, количество верных ответов: #{quiz.guessed}"
-	end	
-end	
-
-puts "\nИгра закончена"
-puts "Общее количество набранных баллов: #{quiz.scores}, общее количество правильных ответов: #{quiz.guessed} вопросов" 
+puts pastel.bold.yellow("Вы набрали #{quiz.start_quiz(NUMBER_OF_QUESTION_FOR_QUIZ)} баллов.")

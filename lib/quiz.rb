@@ -1,39 +1,42 @@
+#!/usr/bin/env ruby
+
+require_relative 'question_methods'
+require_relative 'colorful_output'
+
 class Quiz
+	include QuestionMethods
+	include ColorfulOutput
 
-	# количество вопросов в викторине 
-	NUMBER_OF_QUESTION = 3
-
-	attr_reader :selected_questions, :number_of_question
-    attr_accessor :guessed, :scores
-
-	# статический метод, так как он не относится к этому классу 
-	def self.read_file(file_path)
-		questions = []
-		file = File.new(file_path)
-
-		# Считываем вопросы из xml файла и создаем массив вопросов
-		REXML::Document.new(file).elements.each("questions/question") do |item|
-			questions << Question.new(
-				text: item.elements['text'].text,
-				variants: item.elements['variants'],
-				# rigth_variants: item.elements['variants'].attributes[""]
-				minutes: item.attributes["minutes"].to_i,
-				points: item.attributes["points"].to_i
-				)
-		end	
-
-		return questions
+	def initialize(folder_name)
+		@questions = read_from_file(folder_name)
 	end
 
-	def initialize(questions)
-		@selected_questions = questions.sample(NUMBER_OF_QUESTION) # Выбранные случайным образом вопросы
-		@scores = 0 # баллы
-		@guessed = 0 # Счетчик правильных ответов
-		@number_of_question = NUMBER_OF_QUESTION # Количество вопросов в викторине
-	end  	
+	def start_quiz(number_of_question)
+		number_of_points = 0
 
-	def update_guessed_scores(question)
-		@guessed += 1
-		@scores += question.point
-	end 	
+		@questions.shuffle.sample(number_of_question).each do |question|
+			puts pastel.bold.green(question.text)
+
+			puts "Варианты ответа:"
+			question.answers.each_with_index do |answer, index|
+				puts "#{index + 1}. #{answer[:text]}"
+			end
+
+			user_answer = STDIN.gets.to_i until (1..question.answers.size).include?(user_answer)
+
+			if question.answers[user_answer - 1][:right] == true
+				puts pastel.bold.green("Верно!\n")
+				number_of_points += question.point
+			else
+				puts pastel.bold.red("Неправильно! Правильный ответ: #{right_variant(question)}")
+			end
+		end
+
+		number_of_points
+	end
+
+	def right_variant(question)
+		index = question.answers.find_index { |answer| answer[:right] == true }
+		question.answers[index][:text]
+	end
 end 	

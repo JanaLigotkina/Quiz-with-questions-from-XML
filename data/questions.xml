@@ -1,0 +1,74 @@
+<questions>
+  <question minutes="2" points="3">
+    <text>Сколько байт в килобайте?</text>
+    <variants>
+      <variant>1000</variant>
+      <variant>2048</variant>
+      <variant right="true">1024</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+  <question minutes="1" points="1">
+    <text>Сколько дней в году?</text>
+    <variants>
+      <variant>364</variant>
+      <variant>366</variant>
+      <variant right="true">365</variant>
+      <variant>360</variant>
+    </variants>
+  </question>
+  <question minutes="5" points="2">
+    <text>Сколько жизней у кошек?</text>
+    <variants>
+      <variant>1</variant>
+      <variant>20</variant>
+      <variant right="true">9</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+  <question minutes="5" points="1">
+    <text>Сколько месяцев в году?</text>
+    <variants>
+      <variant>13</variant>
+      <variant>11</variant>
+      <variant right="true">12</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+  <question minutes="2" points="5">
+    <text>Какие две страны соединяет самый длинный мост в мире?</text>
+    <variants>
+      <variant right="true">Россия и Япония</variant>
+      <variant>США и Канада</variant>
+      <variant>Китай и Хонконг</variant>
+      <variant>Швеция и Дания</variant>
+    </variants>
+  </question>
+  <question minutes="1" points="3">
+    <text>Кто написал "Преступление и наказание"?</text>
+    <variants>
+      <variant>Лев Толстой</variant>
+      <variant>Чарльз Диккенс</variant>
+      <variant right="true">Федор Достоевский</variant>
+      <variant>Оскар Уайльд</variant>
+    </variants>
+  </question>
+  <question minutes="5" points="3">
+    <text>Какой химический элемент обозначается буквой "O" в периодической таблице?</text>
+    <variants>
+      <variant right="true">Оксиген</variant>
+      <variant>Оттенок</variant>
+      <variant>Олово</variant>
+      <variant>Осмий</variant>
+    </variants>
+  </question>
+  <question minutes="5" points="12">
+    <text>Какое событие начало Первую мировую войну?</text>
+    <variants>
+      <variant>Убийство Франца Фердинанда</variant>
+      <variant>Революция в России</variant>
+      <variant right="true">Бомбардировка Перла-Харбора</variant>
+      <variant>Завоевание Польши</variant>
+    </variants>
+  </question>
+</questions>
