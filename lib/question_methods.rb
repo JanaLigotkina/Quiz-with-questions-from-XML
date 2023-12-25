@@ -26,9 +26,8 @@ module QuestionMethods
         }
       end
       points = item.attributes["points"].to_i
-      minutes = item.attributes["minutes"].to_i
 
-      questions << Question.new(text, variants, points, minutes)
+      questions << Question.new(text, variants, points)
     end
 
     questions

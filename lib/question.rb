@@ -2,12 +2,11 @@
 require "rexml/document"
 
 class Question
-	attr_reader :text, :answers, :point, :timeline
+	attr_reader :text, :answers, :point
 
-	def initialize(text, answers, point, timeline)
+	def initialize(text, answers, point)
 		@text = text
 		@answers = answers
 		@point = point
-		@timeline = timeline
 	end
 end

@@ -12,5 +12,6 @@ puts pastel.bold.green("Добро пожаловать в игру 'Викто�
 puts "Выберите один из вариантов ответа."
 
 quiz = Quiz.new('data')
+quility_points = quiz.start_quiz(NUMBER_OF_QUESTION_FOR_QUIZ)
 
-puts pastel.bold.yellow("Вы набрали #{quiz.start_quiz(NUMBER_OF_QUESTION_FOR_QUIZ)} баллов.")
+puts pastel.bold.yellow("Вы набрали #{quility_points} #{quiz.output_declination(quility_points)}.")
